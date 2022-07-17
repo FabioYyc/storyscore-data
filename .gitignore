@@ -132,5 +132,7 @@ dmypy.json
 **/pystackql
 # stackql
 **/.stackql
-
+##secret
 service-key.json
+## artefacts
+pipelines/github/user-activities.json
