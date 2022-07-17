@@ -132,3 +132,5 @@ dmypy.json
 **/pystackql
 # stackql
 **/.stackql
+
+service-key.json

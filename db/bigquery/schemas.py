@@ -23,10 +23,10 @@ pull_request_schema = [
         bigquery.SchemaField("email", bigquery.enums.SqlTypeNames.STRING),
         bigquery.SchemaField("pull_number", bigquery.enums.SqlTypeNames.STRING),
         bigquery.SchemaField("state", bigquery.enums.SqlTypeNames.STRING),
-        bigquery.SchemaField("reviews", "RECORD", mode="REPEATED", fields = pull_request_review_schema)
+        bigquery.SchemaField("reviews", "STRUCT", mode="REPEATED", fields = pull_request_review_schema)
     ]
 activity_schema = [*user_schema, 
- bigquery.SchemaField("commits", "RECORD", mode="REPEATED", fields = commit_schema),
- bigquery.SchemaField("pull_requests", "RECORD", mode="REPEATED", fields = pull_request_schema),
- bigquery.SchemaField("pull_request_reviews", "RECORD", mode="REPEATED", fields = pull_request_review_schema)
+ bigquery.SchemaField("commits", "STRUCT", mode="REPEATED", fields = commit_schema),
+ bigquery.SchemaField("pull_requests", "STRUCT", mode="REPEATED", fields = pull_request_schema),
+ bigquery.SchemaField("reviews", "STRUCT", mode="REPEATED", fields = pull_request_review_schema)
 ]
