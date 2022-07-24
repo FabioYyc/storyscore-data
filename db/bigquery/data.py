@@ -11,8 +11,6 @@ def get_table_ref(client: bigquery.Client, dataset_id, table_id):
     table_ref = dataset_ref.table(table_id)
     return table_ref
 
-def get_gbp_table_id(dataset_name, table_name):
-    return ('.').join([dataset_name, table_name]);
 
 def create_load_job_config(job_type='WRITE_TRUNCATE'):
     return bigquery.LoadJobConfig(
@@ -25,7 +23,6 @@ def upload_json(filename: str, dataset_id: str, table_id: str, config):
     print('uploading table: %s'%(table_id))
     client = bigquery.Client(project=PROJECT)
     table_ref = get_table_ref(client, dataset_id, table_id)
-    print(table_ref)
     with open(filename, "rb") as source_file:
         job = client.load_table_from_file(
             source_file, table_ref, job_config=config
